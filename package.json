@@ -21,6 +21,7 @@
     "fast-glob": "^3.3.0",
     "yaml": "^2.7.0",
     "gray-matter": "^4.0.3",
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.0.0",
+    "@tailwindcss/typography": "^0.5.15"
   }
 }

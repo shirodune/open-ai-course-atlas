@@ -35,4 +35,11 @@ describe('checkIntegrity', () => {
     const d = base(); d.comparisons[0].data.subjects = ['ghost'];
     expect(checkIntegrity(d).some(e => e.includes('unknown subject'))).toBe(true);
   });
+
+  it('flags an offering whose filename id does not match course/year/term', () => {
+    const d = base();
+    // id says 2026-winter but data says year 2025 → mismatch
+    d.offerings[0].data.year = 2025;
+    expect(checkIntegrity(d).some(e => e.includes('filename mismatch'))).toBe(true);
+  });
 });

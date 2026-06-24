@@ -1,7 +1,9 @@
+import { expectedOfferingId } from './offerings';
+
 interface IntegrityInput {
   courses: { id: string }[];
   topics: { id: string }[];
-  offerings: { id: string; data: { course: string; topics: string[]; sources: unknown[] } }[];
+  offerings: { id: string; data: { course: string; year: number; term: string; topics: string[]; sources: unknown[] } }[];
   comparisons: { id: string; data: { subjects: string[] } }[];
 }
 
@@ -11,6 +13,10 @@ export function checkIntegrity(input: IntegrityInput): string[] {
   const topicIds = new Set(input.topics.map(t => t.id));
 
   for (const o of input.offerings) {
+    const expected = expectedOfferingId(o.data.course, o.data as any);
+    if (o.id !== expected) {
+      errors.push(`offering "${o.id}" filename mismatch: expected "${expected}" (course="${o.data.course}", year=${o.data.year}, term="${o.data.term}")`);
+    }
     if (!courseIds.has(o.data.course)) {
       errors.push(`offering "${o.id}" references unknown course "${o.data.course}"`);
     }
