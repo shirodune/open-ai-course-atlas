@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import CourseCard from '../components/CourseCard.astro';
+import { sortOfferings, latestOffering } from '../lib/offerings';
+
+const base = import.meta.env.BASE_URL;
+const courses = await getCollection('courses');
+const offerings = await getCollection('offerings');
+const allTopics = await getCollection('topics').then(ts => ts.map(t => t.data));
+
+const cards = courses.map(course => {
+  const mine = offerings.filter(o => o.data.course === course.id);
+  const sorted = sortOfferings(mine);
+  const years = sorted.map(o => o.data.year);
+  const yearSpan = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : 'no offerings';
+  return {
+    course: course.data,
+    href: `${base}/courses/${course.id}`,
+    offeringCount: mine.length,
+    yearSpan,
+    topics: latestOffering(mine)?.data.topics ?? [],
+    fields: course.data.fields.join(' '),
+    institution: course.data.institution,
+  };
+});
+
+const fields = [...new Set(courses.flatMap(c => c.data.fields))].sort();
+const institutions = [...new Set(courses.map(c => c.data.institution))].sort();
+---
+<Base title="Course Atlas — how CS courses evolve">
+  <div class="flex gap-6">
+    <aside class="w-44 shrink-0 text-sm">
+      <input id="search" placeholder="🔍 Search…" class="border border-gray-300 rounded px-2 py-1 w-full mb-3" />
+      <div class="font-semibold text-xs uppercase text-gray-500">Field</div>
+      {fields.map(f => <label class="block"><input type="checkbox" class="f-field" value={f} /> {f}</label>)}
+      <div class="font-semibold text-xs uppercase text-gray-500 mt-3">Institution</div>
+      {institutions.map(i => <label class="block"><input type="checkbox" class="f-inst" value={i} /> {i}</label>)}
+    </aside>
+    <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1">
+      {cards.map(c => <CourseCard {...c} allTopics={allTopics} />)}
+    </div>
+  </div>
+
+  <script>
+    const grid = document.getElementById('grid')!;
+    const search = document.getElementById('search') as HTMLInputElement;
+    function checked(sel: string) {
+      return [...document.querySelectorAll<HTMLInputElement>(sel)].filter(c => c.checked).map(c => c.value);
+    }
+    function apply() {
+      const q = search.value.toLowerCase();
+      const fields = checked('.f-field');
+      const insts = checked('.f-inst');
+      for (const card of grid.children as HTMLCollectionOf<HTMLElement>) {
+        const cardFields = (card.dataset.fields ?? '').split(' ');
+        const okField = !fields.length || fields.some(f => cardFields.includes(f));
+        const okInst = !insts.length || insts.includes(card.dataset.institution ?? '');
+        const okSearch = !q || (card.dataset.name ?? '').includes(q);
+        card.style.display = okField && okInst && okSearch ? '' : 'none';
+      }
+    }
+    search.addEventListener('input', apply);
+    document.querySelectorAll('.f-field, .f-inst').forEach(c => c.addEventListener('change', apply));
+  </script>
+</Base>
