@@ -1,0 +1,10 @@
+course: cmu-11711
+year: 2025
+term: Spring
+instructors:
+  - { name: Sean Welleck }
+frameworks: [pytorch]
+topics: [transformers, pretraining, prompting, rlhf, dpo, rag, agents, reasoning, distillation, multimodal, evaluation]
+project: { type: default, title: Build Your Own LLaMa }
+sources:
+  - { url: "https://cmu-l3.github.io/anlp-spring2025/", type: official }

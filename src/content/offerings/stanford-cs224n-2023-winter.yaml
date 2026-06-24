@@ -1,0 +1,10 @@
+course: stanford-cs224n
+year: 2023
+term: Winter
+instructors:
+  - { name: Christopher Manning }
+frameworks: [pytorch]
+topics: [word-vectors, rnn, transformers, pretraining, bert, prompting, rlhf, nmt]
+project: { type: default, title: minBERT }
+sources:
+  - { url: "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1234/", type: official }

@@ -1,0 +1,11 @@
+course: stanford-cs336
+year: 2025
+term: Spring
+instructors:
+  - { name: Percy Liang }
+  - { name: Tatsunori Hashimoto }
+frameworks: [pytorch]
+topics: [transformers, pretraining, distillation, evaluation]
+project: { type: default, title: Build a language model from scratch }
+sources:
+  - { url: "https://cs336.stanford.edu/", type: official }

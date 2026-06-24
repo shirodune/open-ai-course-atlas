@@ -1,0 +1,8 @@
+title: Language Modeling from Scratch
+number: CS 336
+institution: Stanford
+fields: [nlp, deep-learning, llm]
+homepage: https://cs336.stanford.edu/
+summary: >-
+  Build a language model end-to-end: tokenization, architecture, training,
+  systems, and evaluation. Depth-first counterpart to the breadth of CS 224N.

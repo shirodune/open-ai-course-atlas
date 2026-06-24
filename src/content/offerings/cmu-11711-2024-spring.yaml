@@ -1,0 +1,10 @@
+course: cmu-11711
+year: 2024
+term: Spring
+instructors:
+  - { name: Graham Neubig }
+frameworks: [pytorch]
+topics: [transformers, pretraining, prompting, instruction-tuning, rlhf, rag, agents, distillation, reasoning]
+project: { type: default, title: Build Your Own LLaMa }
+sources:
+  - { url: "https://www.phontron.com/class/anlp2024/", type: official }

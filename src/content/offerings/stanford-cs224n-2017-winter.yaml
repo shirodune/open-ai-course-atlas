@@ -1,0 +1,11 @@
+course: stanford-cs224n
+year: 2017
+term: Winter
+instructors:
+  - { name: Christopher Manning }
+  - { name: Richard Socher }
+frameworks: [tensorflow]
+topics: [word-vectors, rnn, attention, nmt]
+project: { type: default, title: SQuAD QA }
+sources:
+  - { url: "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1174/", type: official }

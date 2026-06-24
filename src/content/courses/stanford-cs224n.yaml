@@ -1,0 +1,12 @@
+title: Natural Language Processing with Deep Learning
+number: CS 224N
+institution: Stanford
+fields: [nlp, deep-learning]
+homepage: https://web.stanford.edu/class/cs224n/
+crossListed: [Ling 284]
+summary: >-
+  Stanford's flagship NLP course. Evolved from statistical NLP (pre-2017) through
+  RNN-based deep learning into a Transformer/LLM-centric curriculum.
+lineage:
+  predecessors: [stanford-cs224d]
+  note: 2017 merger of CS 224N (statistical NLP) and CS 224d (deep learning for NLP)

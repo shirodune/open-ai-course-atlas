@@ -1,0 +1,10 @@
+title: Advanced NLP
+number: 11-711
+institution: CMU
+fields: [nlp, deep-learning]
+homepage: https://phontron.com/class/anlp2024/
+summary: >-
+  CMU's graduate Advanced NLP. Born neural (from 11-747 "Neural Networks for NLP");
+  research/build-oriented, with a signature build-it-from-scratch assignment each year.
+lineage:
+  note: Grew out of 11-747 "Neural Networks for NLP" (became 11-711 in Fall 2021)

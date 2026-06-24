@@ -1,0 +1,11 @@
+course: cmu-11711
+year: 2021
+term: Fall
+instructors:
+  - { name: Graham Neubig }
+  - { name: Robert Frederking }
+frameworks: [pytorch]
+topics: [word-vectors, rnn, attention, transformers, pretraining, bert, prompting, nmt]
+project: { type: default, title: Reproduce + improve a paper }
+sources:
+  - { url: "https://phontron.com/class/anlp2021/", type: official }
