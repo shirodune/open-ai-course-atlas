@@ -1,0 +1,34 @@
+---
+import type { Offering, Topic } from '../lib/schemas';
+import TopicChips from './TopicChips.astro';
+interface Props { data: Offering; allTopics: Topic[] }
+const { data, allTopics } = Astro.props;
+---
+<section class="space-y-3">
+  <p class="text-sm text-gray-700">
+    👤 {data.instructors.map(i => i.name).join(', ')}
+    {data.frameworks.length > 0 && <span> · ⚙ {data.frameworks.join(', ')}</span>}
+    {data.project && <span> · 🎓 {data.project.title}</span>}
+  </p>
+  <TopicChips topics={data.topics} allTopics={allTopics} />
+  {data.schedule && (
+    <details class="text-sm">
+      <summary class="cursor-pointer">Schedule ({data.schedule.length} lectures)</summary>
+      <ul class="list-disc ml-6 mt-1">
+        {data.schedule.map(s => <li>{s.week ? `Week ${s.week}: ` : ''}{s.title}</li>)}
+      </ul>
+    </details>
+  )}
+  {data.assignments && (
+    <details class="text-sm">
+      <summary class="cursor-pointer">Assignments ({data.assignments.length})</summary>
+      <ul class="list-disc ml-6 mt-1">
+        {data.assignments.map(a => <li>{a.name}: {a.title}{a.weight ? ` (${a.weight}%)` : ''}</li>)}
+      </ul>
+    </details>
+  )}
+  {data.notes && <p class="text-sm text-gray-600 italic">{data.notes}</p>}
+  <p class="text-xs text-gray-500">
+    Sources: {data.sources.map((s, i) => <a href={s.url} class="underline">[{i + 1}]</a>)}
+  </p>
+</section>

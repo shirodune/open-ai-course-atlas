@@ -1,0 +1,7 @@
+---
+interface Props { model: string; generatedAt: string }
+const { model, generatedAt } = Astro.props;
+---
+<span class="inline-block text-xs text-gray-500 border border-gray-300 rounded-full px-2 py-0.5">
+  🤖 Machine-generated · {model} · {generatedAt}
+</span>

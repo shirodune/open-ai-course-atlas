@@ -1,0 +1,11 @@
+---
+import type { Topic } from '../lib/schemas';
+import { topicLabel } from '../lib/topics';
+interface Props { topics: string[]; allTopics: Topic[] }
+const { topics, allTopics } = Astro.props;
+---
+<div class="flex flex-wrap gap-1">
+  {topics.map(t => (
+    <span class="text-xs bg-gray-100 rounded px-2 py-0.5">{topicLabel(allTopics, t)}</span>
+  ))}
+</div>
