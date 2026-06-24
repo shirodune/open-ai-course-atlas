@@ -1,0 +1,43 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import OfferingDetail from '../../components/OfferingDetail.astro';
+import VersionSwitcher from '../../components/VersionSwitcher.astro';
+import NarrativeSection from '../../components/NarrativeSection.astro';
+import { latestOffering, offeringSlug, versionLabel } from '../../lib/offerings';
+
+export async function getStaticPaths() {
+  const courses = await getCollection('courses');
+  return courses.map(course => ({ params: { id: course.id }, props: { course } }));
+}
+
+const { course } = Astro.props;
+const offerings = (await getCollection('offerings')).filter(o => o.data.course === course.id);
+const allTopics = (await getCollection('topics')).map(t => t.data);
+const latest = latestOffering(offerings)!;
+
+const comparisons = (await getCollection('comparisons')).filter(c => c.data.subjects.includes(course.id));
+const narratives = await Promise.all(comparisons.map(async c => ({
+  data: c.data, Content: (await render(c)).Content,
+})));
+const titleFor = (type: string) => type === 'evolution' ? '📈 Evolution' : '🔀 Similar courses';
+---
+<Base title={`${course.data.number} — ${course.data.title}`}>
+  <h1 class="text-xl font-semibold">{course.data.number} — {course.data.title}</h1>
+  <p class="text-sm text-gray-600">
+    {course.data.institution}
+    {course.data.crossListed && <span> · cross-listed {course.data.crossListed.join(', ')}</span>}
+    {course.data.lineage?.note && <span> · 🧬 {course.data.lineage.note}</span>}
+  </p>
+  <div class="my-3">
+    <VersionSwitcher courseId={course.id} entries={offerings} currentSlug={offeringSlug(latest.data)} />
+  </div>
+  <h2 class="text-sm uppercase text-gray-500">This version — {versionLabel(latest.data)}</h2>
+  <OfferingDetail data={latest.data} allTopics={allTopics} />
+
+  {narratives.map(n => (
+    <NarrativeSection title={titleFor(n.data.type)} model={n.data.generatedBy.model} generatedAt={n.data.generatedBy.generatedAt}>
+      <n.Content />
+    </NarrativeSection>
+  ))}
+</Base>

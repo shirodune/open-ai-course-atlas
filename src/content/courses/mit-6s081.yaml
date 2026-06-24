@@ -1,0 +1,8 @@
+title: Operating System Engineering
+number: 6.S081
+institution: MIT
+fields: [systems, operating-systems]
+homepage: https://pdos.csail.mit.edu/6.S081/
+summary: >-
+  Hands-on OS course built around the xv6 teaching kernel. Included as a
+  non-AI course to prove the schema generalizes beyond NLP.

@@ -1,0 +1,22 @@
+- { id: word-vectors, label: Word Vectors, category: representation }
+- { id: rnn, label: RNNs / LSTMs, category: architecture }
+- { id: attention, label: Attention, category: architecture }
+- { id: transformers, label: Transformers, category: architecture }
+- { id: pretraining, label: Pretraining, category: training }
+- { id: bert, label: BERT / Encoders, category: training }
+- { id: prompting, label: Prompting / In-Context Learning, category: usage }
+- { id: instruction-tuning, label: Instruction Tuning, category: post-training }
+- { id: rlhf, label: RLHF, category: post-training }
+- { id: dpo, label: DPO / SFT, category: post-training }
+- { id: peft, label: PEFT / LoRA, category: efficiency }
+- { id: distillation, label: Distillation / Quantization, category: efficiency }
+- { id: rag, label: Retrieval-Augmented Generation, category: systems }
+- { id: agents, label: Agents / Tool Use, category: systems }
+- { id: reasoning, label: Reasoning, category: capabilities }
+- { id: evaluation, label: Benchmarking & Evaluation, category: methodology }
+- { id: multimodal, label: Multimodality, category: capabilities }
+- { id: interpretability, label: Interpretability, category: analysis }
+- { id: nmt, label: Machine Translation / Seq2Seq, category: application }
+- { id: os-kernel, label: OS Kernels, category: systems }
+- { id: concurrency, label: Concurrency, category: systems }
+- { id: virtual-memory, label: Virtual Memory, category: systems }

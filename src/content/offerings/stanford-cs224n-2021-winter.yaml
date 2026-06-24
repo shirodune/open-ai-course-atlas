@@ -1,0 +1,10 @@
+course: stanford-cs224n
+year: 2021
+term: Winter
+instructors:
+  - { name: Christopher Manning }
+frameworks: [pytorch]
+topics: [word-vectors, rnn, attention, transformers, pretraining, bert, nmt]
+project: { type: default, title: SQuAD QA }
+sources:
+  - { url: "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1214/", type: official }

@@ -1,0 +1,10 @@
+course: cmu-11711
+year: 2022
+term: Fall
+instructors:
+  - { name: Graham Neubig }
+frameworks: [pytorch]
+topics: [word-vectors, rnn, attention, transformers, pretraining, bert, prompting, nmt]
+project: { type: default, title: Build Your Own BERT }
+sources:
+  - { url: "https://phontron.com/class/anlp2022/", type: official }

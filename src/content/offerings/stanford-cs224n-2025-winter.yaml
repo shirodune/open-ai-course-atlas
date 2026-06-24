@@ -1,0 +1,11 @@
+course: stanford-cs224n
+year: 2025
+term: Winter
+instructors:
+  - { name: Diyi Yang }
+  - { name: Tatsunori Hashimoto }
+frameworks: [pytorch]
+topics: [word-vectors, transformers, pretraining, rlhf, dpo, peft, rag, evaluation]
+project: { type: default, title: GPT-2 }
+sources:
+  - { url: "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/", type: official }

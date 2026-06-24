@@ -1,0 +1,14 @@
+course: stanford-cs224n
+year: 2026
+term: Winter
+instructors:
+  - { name: Diyi Yang }
+  - { name: Yejin Choi }
+frameworks: [pytorch]
+topics: [word-vectors, transformers, pretraining, rlhf, peft, agents, rag, reasoning, evaluation]
+project: { type: default, title: GPT-2 }
+sources:
+  - { url: "https://web.stanford.edu/class/cs224n/", type: official }
+notes: >-
+  First Yang+Choi offering. Dedicated lectures on agents/tool use and reasoning;
+  A4 is LLM benchmarking & evaluation.

@@ -1,0 +1,17 @@
+---
+import type { Course, Topic } from '../lib/schemas';
+import TopicChips from './TopicChips.astro';
+interface Props {
+  course: Course; offeringCount: number; yearSpan: string;
+  topics: string[]; allTopics: Topic[]; href: string; fields: string; institution: string;
+}
+const { course, offeringCount, yearSpan, topics, allTopics, href, fields, institution } = Astro.props;
+---
+<a href={href}
+   class="block border border-gray-200 rounded-lg p-4 hover:shadow-md transition"
+   data-fields={fields} data-institution={institution} data-name={`${course.number} ${course.title}`.toLowerCase()}>
+  <div class="font-semibold">{course.number} <span class="text-gray-500 font-normal">· {course.institution}</span></div>
+  <div class="text-sm">{course.title}</div>
+  <div class="text-xs text-gray-500 my-1">{offeringCount} offerings · {yearSpan}</div>
+  <TopicChips topics={topics.slice(0, 5)} allTopics={allTopics} />
+</a>

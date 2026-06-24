@@ -1,0 +1,11 @@
+course: mit-6s081
+year: 2023
+term: Fall
+instructors:
+  - { name: Frans Kaashoek }
+  - { name: Robert Morris }
+frameworks: [c, risc-v]
+topics: [os-kernel, concurrency, virtual-memory]
+project: { type: default, title: xv6 labs }
+sources:
+  - { url: "https://pdos.csail.mit.edu/6.S081/2023/", type: official }

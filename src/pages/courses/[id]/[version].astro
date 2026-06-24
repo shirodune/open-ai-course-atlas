@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import OfferingDetail from '../../../components/OfferingDetail.astro';
+import VersionSwitcher from '../../../components/VersionSwitcher.astro';
+import { offeringSlug, versionLabel } from '../../../lib/offerings';
+
+export async function getStaticPaths() {
+  const courses = await getCollection('courses');
+  const offerings = await getCollection('offerings');
+  return offerings.map(o => {
+    const course = courses.find(c => c.id === o.data.course)!;
+    const siblings = offerings.filter(s => s.data.course === o.data.course);
+    return {
+      params: { id: o.data.course, version: offeringSlug(o.data) },
+      props: { course, offering: o, siblings },
+    };
+  });
+}
+
+const { course, offering, siblings } = Astro.props;
+const allTopics = (await getCollection('topics')).map(t => t.data);
+---
+<Base title={`${course.data.number} — ${versionLabel(offering.data)}`}>
+  <h1 class="text-xl font-semibold">{course.data.number} — {course.data.title}</h1>
+  <p class="text-sm text-gray-600">{course.data.institution}</p>
+  <div class="my-3">
+    <VersionSwitcher courseId={course.id} entries={siblings} currentSlug={offeringSlug(offering.data)} />
+  </div>
+  <h2 class="text-sm uppercase text-gray-500">{versionLabel(offering.data)}</h2>
+  <OfferingDetail data={offering.data} allTopics={allTopics} />
+</Base>

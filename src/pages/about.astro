@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="About — Course Atlas">
+  <h1 class="text-xl font-semibold">About Course Atlas</h1>
+  <div class="prose prose-sm max-w-none mt-3">
+    <p>
+      Course Atlas tracks how university CS courses evolve over the years — their
+      schedules, assignments, default projects, instructors, and topic coverage —
+      treating each semester as a version of the course, like versioned documentation.
+    </p>
+    <p>
+      Each course's structured data is the ground truth. The "Evolution" and
+      "Similar courses" summaries are machine-generated narratives, clearly badged
+      with the model that wrote them, grounded in that structured data.
+    </p>
+    <p>
+      Data is seeded by hand today; a semi-automated harvesting pipeline is planned
+      to expand coverage, with provenance recorded on every record.
+    </p>
+  </div>
+</Base>
