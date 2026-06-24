@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
-// NOTE: For a GitHub *project* page the site is served under /open-ai-course-atlas/.
-// If deploying to a user/org page or a custom domain, set base: '/' and update site.
+// Deployed on Vercel, which serves at the domain root (base: '/').
+// Update `site` to the real domain once Vercel assigns it (e.g. a custom domain).
 export default defineConfig({
-  site: 'https://example.github.io',
-  base: '/open-ai-course-atlas',
+  site: 'https://open-ai-course-atlas.vercel.app',
+  base: '/',
   vite: { plugins: [tailwindcss()] },
 });
