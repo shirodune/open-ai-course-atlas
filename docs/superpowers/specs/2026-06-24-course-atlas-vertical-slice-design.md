@@ -131,8 +131,8 @@ Every `offerings.topics[]` entry must resolve to a taxonomy `id` (enforced by in
 | Route | Purpose | Rendering |
 |---|---|---|
 | `/` | **Catalog (hero).** Sidebar filters (field, institution) + card grid; search by name/number. Each card shows offering count + year span and links to the course. | Static + one small client filter island |
-| `/courses/[id]` | Course page showing the **latest** version. | Static |
-| `/courses/[id]/[term-year]` | A specific version (deep-linkable). The version dropdown links here. | Static (one page per offering) |
+| `/courses/[id]` | Course page showing the **latest** version — renders the same content as that version's `[term-year]` page, **plus** the Evolution & Similar-courses narrative sections (§4.3). | Static |
+| `/courses/[id]/[term-year]` | A specific (non-latest) version, deep-linkable. The version dropdown links here. Shows the version's structured data **without** the narrative sections. | Static (one page per offering) |
 | `/about` | What the site is; methodology & provenance; how data is sourced (sets up the harvester story). | Static |
 
 The **only** JavaScript on the site is the catalog filter island. Version switching is plain links; expandable schedule/assignments use native `<details>`.
