@@ -1,0 +1,12 @@
+# Visual-companion mockups (brainstorming)
+.superpowers/
+
+# Dependencies / build (Astro — added when scaffolded)
+node_modules/
+dist/
+.astro/
+
+# Env / OS
+.env
+.env.*
+.DS_Store
