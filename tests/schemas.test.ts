@@ -51,3 +51,20 @@ describe('topicSchema', () => {
     expect(topicSchema.safeParse({ id: 'rlhf', label: 'RLHF', category: 'post-training' }).success).toBe(true);
   });
 });
+
+describe('courseSchema tags', () => {
+  const base = {
+    title: 'X', number: 'CS 1', institution: 'Y',
+    fields: ['nlp'], homepage: 'https://e.com/', summary: 'z',
+  };
+
+  it('defaults tags to an empty array when omitted', () => {
+    const parsed = courseSchema.parse(base);
+    expect(parsed.tags).toEqual([]);
+  });
+
+  it('preserves provided tags', () => {
+    const parsed = courseSchema.parse({ ...base, tags: ['nlp', 'transformers'] });
+    expect(parsed.tags).toEqual(['nlp', 'transformers']);
+  });
+});

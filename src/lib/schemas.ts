@@ -7,6 +7,7 @@ export const courseSchema = z.object({
   number: z.string(),
   institution: z.string(),
   fields: z.array(z.string()).min(1),
+  tags: z.array(z.string()).default([]),
   homepage: z.string().url(),
   summary: z.string(),
   crossListed: z.array(z.string()).optional(),
