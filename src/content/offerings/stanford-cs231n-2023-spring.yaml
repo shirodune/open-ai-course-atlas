@@ -1,0 +1,21 @@
+course: stanford-cs231n
+year: 2023
+term: Spring
+instructors:
+  - name: Fei-Fei Li
+    role: instructor
+  - name: Yunzhu Li
+    role: instructor
+  - name: Ruohan Gao
+    role: instructor
+frameworks: []
+project:
+  type: final-project
+  title: Final Project
+sources:
+  - url: https://cs231n.stanford.edu/2023/
+    type: official
+harvest:
+  lastVerified: "2026-06-29"
+  extractor: stanford-cs231n
+  confidence: 0.97

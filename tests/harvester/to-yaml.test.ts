@@ -29,6 +29,20 @@ describe('offeringToYaml', () => {
     expect(back.harvest.lastVerified).toBe('2026-06-24');
   });
 
+  it('double-quotes the date so Astro\'s loader does not coerce it to a Date', () => {
+    // The yaml lib parses unquoted YYYY-MM-DD as a string, but Astro\'s content
+    // loader coerces it to a Date and fails z.string(). Quoting is the guard.
+    expect(yaml).toContain('lastVerified: "2026-06-24"');
+  });
+
+  it('double-quotes schedule dates too', () => {
+    const withSchedule = offeringToYaml(
+      { ...o, schedule: [{ week: 1, date: '2024-01-09', title: 'Intro' }] },
+      harvest,
+    );
+    expect(withSchedule).toContain('date: "2024-01-09"');
+  });
+
   it('omits optional fields that are absent', () => {
     expect(yaml).not.toContain('project:');
     expect(yaml).not.toContain('assignments:');
