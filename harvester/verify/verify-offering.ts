@@ -26,10 +26,13 @@ export interface Adjudication {
   confidence: number;
 }
 
-export function adjudicate(v: Verification): Adjudication {
-  const fieldsToRetry = v.verdicts.filter(d => d.verdict === 'unsupported').map(d => d.field);
+export function adjudicate(v: Verification, populatedFields?: string[]): Adjudication {
+  const judged = new Set(v.verdicts.map(d => d.field));
+  const unsupported = v.verdicts.filter(d => d.verdict === 'unsupported').map(d => d.field);
   const fieldsToFlag = v.verdicts.filter(d => d.verdict === 'uncertain').map(d => d.field);
-  const confidence = Math.max(0, Math.min(1, v.confidence - 0.1 * fieldsToFlag.length));
+  const uncovered = (populatedFields ?? []).filter(f => !judged.has(f));
+  const fieldsToRetry = [...unsupported, ...uncovered];
+  const confidence = Math.round(Math.max(0, Math.min(1, v.confidence - 0.1 * fieldsToFlag.length)) * 100) / 100;
   return {
     decision: fieldsToRetry.length > 0 ? 'retry' : 'pass',
     fieldsToRetry,

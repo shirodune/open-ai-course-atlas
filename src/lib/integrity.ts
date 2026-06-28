@@ -3,7 +3,7 @@ import { expectedOfferingId } from './offerings';
 interface IntegrityInput {
   courses: { id: string }[];
   topics: { id: string }[];
-  offerings: { id: string; data: { course: string; year: number; term: string; topics: string[]; sources: unknown[] } }[];
+  offerings: { id: string; data: { course: string; year: number; term: string; topics?: string[]; sources: unknown[] } }[];
   comparisons: { id: string; data: { subjects: string[] } }[];
 }
 
@@ -20,7 +20,7 @@ export function checkIntegrity(input: IntegrityInput): string[] {
     if (!courseIds.has(o.data.course)) {
       errors.push(`offering "${o.id}" references unknown course "${o.data.course}"`);
     }
-    for (const t of o.data.topics) {
+    for (const t of o.data.topics ?? []) {
       if (!topicIds.has(t)) errors.push(`offering "${o.id}" references unknown topic "${t}"`);
     }
     if (!o.data.sources || o.data.sources.length === 0) {

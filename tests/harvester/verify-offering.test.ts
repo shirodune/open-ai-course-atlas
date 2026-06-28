@@ -52,4 +52,19 @@ describe('adjudicate', () => {
     ], confidence: 0.1 });
     expect(a.confidence).toBe(0);
   });
+
+  it('flags a populated field that the verifier did not judge as needing retry', () => {
+    const a = adjudicate({ verdicts: [
+      { field: 'year', verdict: 'grounded' },
+    ], confidence: 0.9 }, ['year', 'instructors']);
+    expect(a.decision).toBe('retry');
+    expect(a.fieldsToRetry).toContain('instructors');
+  });
+
+  it('rounds stamped confidence to two decimals', () => {
+    const a = adjudicate({ verdicts: [
+      { field: 'a', verdict: 'uncertain' }, { field: 'b', verdict: 'uncertain' },
+    ], confidence: 0.9 });
+    expect(a.confidence).toBe(0.7);
+  });
 });

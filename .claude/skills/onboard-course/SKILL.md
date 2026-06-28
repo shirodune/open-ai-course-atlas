@@ -90,9 +90,14 @@ primitives under `harvester/` do the mechanical work; you (the agent) do the jud
   > **unsupported** (contradicted or absent), or **uncertain** (plausible but not clearly
   > supported). Quote the supporting snippet as `evidence` when grounded. Then give an overall
   > `confidence` in [0,1]. Judge only whether values trace back to the SOURCE TEXT — do not use
-  > outside knowledge. Return ONLY the JSON object.
+  > outside knowledge. **You MUST return a verdict for EVERY populated field of the offering
+  > (every key present in the extracted JSON) — omitting a field is not allowed.** Return ONLY
+  > the JSON object.
 
-- Parse the reply with `parseVerification(...)`, then `adjudicate(...)`.
+- Parse the reply with `parseVerification(...)`, then `adjudicate(parsed, populatedFields)`
+  where `populatedFields` is the list of fields actually present on the extracted offering
+  (e.g. `Object.keys` of the populated fields). A populated field the verifier failed to judge
+  is routed to retry.
   - `decision === 'retry'`: revise the extractor for the `fieldsToRetry` (back to step 3),
     up to 2 retries. If a field still fails, DROP it from the offering and record it as a
     dropped field for the PR body.

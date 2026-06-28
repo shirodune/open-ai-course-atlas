@@ -3,6 +3,7 @@ import { parse } from 'yaml';
 import { offeringToYaml } from '../../harvester/lib/to-yaml';
 import { offeringSchema } from '../../src/lib/schemas';
 import type { ExtractedOffering } from '../../harvester/extractors/contract';
+import { checkIntegrity } from '../../src/lib/integrity';
 
 const o: ExtractedOffering = {
   course: 'stanford-cs224n',
@@ -36,5 +37,16 @@ describe('offeringToYaml', () => {
   it('stamps the harvest provenance block', () => {
     expect(yaml).toContain('extractor: stanford-cs224n');
     expect(yaml).toContain('confidence: 0.95');
+  });
+
+  it('passes the real integrity check (no topics key)', () => {
+    const data = parse(yaml);
+    const errors = checkIntegrity({
+      courses: [{ id: 'stanford-cs224n' }],
+      topics: [],
+      offerings: [{ id: 'stanford-cs224n-2024-winter', data }],
+      comparisons: [],
+    } as any);
+    expect(errors).toEqual([]);
   });
 });
