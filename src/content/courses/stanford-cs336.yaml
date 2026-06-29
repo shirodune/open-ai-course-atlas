@@ -2,6 +2,7 @@ title: Language Modeling from Scratch
 number: CS 336
 institution: Stanford
 fields: [nlp, deep-learning, llm]
+tags: [nlp, llm, language-models, transformers, systems]
 homepage: https://cs336.stanford.edu/
 summary: >-
   Build a language model end-to-end: tokenization, architecture, training,

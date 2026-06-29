@@ -2,12 +2,11 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import CourseCard from '../components/CourseCard.astro';
-import { sortOfferings, latestOffering } from '../lib/offerings';
+import { sortOfferings } from '../lib/offerings';
 import { withBase } from '../lib/url';
 
 const courses = await getCollection('courses');
 const offerings = await getCollection('offerings');
-const allTopics = await getCollection('topics').then(ts => ts.map(t => t.data));
 
 const cards = courses.map(course => {
   const mine = offerings.filter(o => o.data.course === course.id);
@@ -19,7 +18,7 @@ const cards = courses.map(course => {
     href: withBase(`/courses/${course.id}`),
     offeringCount: mine.length,
     yearSpan,
-    topics: latestOffering(mine)?.data.topics ?? [],
+    tags: course.data.tags,
     fields: course.data.fields.join(' '),
     institution: course.data.institution,
   };
@@ -38,7 +37,7 @@ const institutions = [...new Set(courses.map(c => c.data.institution))].sort();
       {institutions.map(i => <label class="block"><input type="checkbox" class="f-inst" value={i} /> {i}</label>)}
     </aside>
     <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1">
-      {cards.map(c => <CourseCard {...c} allTopics={allTopics} />)}
+      {cards.map(c => <CourseCard {...c} />)}
     </div>
   </div>
 

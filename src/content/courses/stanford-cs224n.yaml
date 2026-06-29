@@ -2,6 +2,7 @@ title: Natural Language Processing with Deep Learning
 number: CS 224N
 institution: Stanford
 fields: [nlp, deep-learning]
+tags: [nlp, deep-learning, transformers, word-embeddings, attention, language-models]
 homepage: https://web.stanford.edu/class/cs224n/
 crossListed: [Ling 284]
 summary: >-
