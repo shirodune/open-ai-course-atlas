@@ -1,11 +1,10 @@
 ---
-import type { Course, Topic } from '../lib/schemas';
-import TopicChips from './TopicChips.astro';
+import type { Course } from '../lib/schemas';
 interface Props {
   course: Course; offeringCount: number; yearSpan: string;
-  topics: string[]; allTopics: Topic[]; href: string; fields: string; institution: string;
+  tags: string[]; href: string; fields: string; institution: string;
 }
-const { course, offeringCount, yearSpan, topics, allTopics, href, fields, institution } = Astro.props;
+const { course, offeringCount, yearSpan, tags, href, fields, institution } = Astro.props;
 ---
 <a href={href}
    class="block border border-gray-200 rounded-lg p-4 hover:shadow-md transition"
@@ -13,5 +12,9 @@ const { course, offeringCount, yearSpan, topics, allTopics, href, fields, instit
   <div class="font-semibold">{course.number} <span class="text-gray-500 font-normal">· {course.institution}</span></div>
   <div class="text-sm">{course.title}</div>
   <div class="text-xs text-gray-500 my-1">{offeringCount} offerings · {yearSpan}</div>
-  <TopicChips topics={topics.slice(0, 5)} allTopics={allTopics} />
+  <div class="flex flex-wrap gap-1">
+    {tags.slice(0, 6).map(t => (
+      <span class="text-xs bg-gray-100 rounded px-2 py-0.5">{t}</span>
+    ))}
+  </div>
 </a>
