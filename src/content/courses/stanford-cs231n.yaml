@@ -1,0 +1,10 @@
+title: Deep Learning for Computer Vision
+number: CS 231N
+institution: Stanford
+fields: [computer-vision, deep-learning]
+homepage: https://cs231n.stanford.edu/
+summary: >-
+  Stanford's flagship computer-vision course. Builds visual-recognition systems
+  from the ground up — image classification, convolutional networks, training,
+  and modern architectures — culminating in an open-ended final project.
+tags: [computer-vision, deep-learning, cnns, image-classification, neural-networks]

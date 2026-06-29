@@ -1,0 +1,19 @@
+course: stanford-cs231n
+year: 2024
+term: Spring
+instructors:
+  - name: Fei-Fei Li
+    role: instructor
+  - name: Ehsan Adeli
+    role: instructor
+frameworks: []
+project:
+  type: final-project
+  title: Final Project
+sources:
+  - url: https://cs231n.stanford.edu/2024/
+    type: official
+harvest:
+  lastVerified: "2026-06-29"
+  extractor: stanford-cs231n
+  confidence: 0.95

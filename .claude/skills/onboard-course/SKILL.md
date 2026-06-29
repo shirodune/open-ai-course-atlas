@@ -18,10 +18,16 @@ primitives under `harvester/` do the mechanical work; you (the agent) do the jud
 
 ### 1. Discover (judgment + code)
 - Fetch the homepage: `fetchPage(homepageUrl)` from `harvester/lib/fetch.ts`.
-- Run `discoverOfferingUrls(page.html, homepageUrl)` from `harvester/lib/discover.ts`.
+- **The homepage IS the current offering.** Always include it as one of the pages to extract.
+  `discoverOfferingUrls` only finds year-stamped archive URLs (e.g. `/2024/`); the current
+  year usually lives at the site root with no year in its URL, so discovery will NOT surface
+  it. Its source URL is the homepage URL itself (not a `/<year>/` path).
+- Run `discoverOfferingUrls(page.html, homepageUrl)` from `harvester/lib/discover.ts` to find
+  the prior-year archives.
 - Review the candidates. Keep the real per-year offering pages (usually 3–4 of them);
   discard duplicates, lecture-video indexes, and unrelated year-bearing links. Use judgment —
   the discovery primitive is deliberately broad.
+- Your final page set = the homepage (current offering) + the chosen archive pages.
 
 ### 2. Fetch (code)
 - For each chosen URL, `fetchPage(url)`. It falls back to the Wayback Machine automatically
