@@ -7,21 +7,24 @@ import { validateOffering } from '../../../harvester/lib/validate';
 import type { FetchedPage } from '../../../harvester/extractors/contract';
 
 const here = dirname(fileURLToPath(import.meta.url));
+// The current offering (2026) lives at the site root; prior years live under /<year>/.
+const sourceUrl = (year: number) =>
+  year === 2026 ? 'https://cs231n.stanford.edu/' : `https://cs231n.stanford.edu/${year}/`;
 const fixture = (year: number): FetchedPage => ({
-  url: `https://cs231n.stanford.edu/${year}/`,
+  url: sourceUrl(year),
   html: readFileSync(resolve(here, `../fixtures/stanford-cs231n-${year}.html`), 'utf8'),
   text: '',
   retrievedAt: '2026-06-29T00:00:00.000Z',
   source: 'official',
 });
 
-const YEARS = [2025, 2024, 2023, 2022] as const;
+const YEARS = [2026, 2025, 2024, 2023, 2022] as const;
 const offerings = extract(YEARS.map(fixture));
 const byYear = (y: number) => offerings.find(o => o.year === y)!;
 
 describe('stanford-cs231n extractor', () => {
   it('extracts one Spring offering per fixture, all schema-valid', () => {
-    expect(offerings).toHaveLength(4);
+    expect(offerings).toHaveLength(5);
     for (const o of offerings) {
       expect(o.course).toBe('stanford-cs231n');
       expect(o.term).toBe('Spring');
@@ -31,7 +34,7 @@ describe('stanford-cs231n extractor', () => {
   });
 
   it('reads year + term from the "Stanford - Spring <year>" banner', () => {
-    expect(offerings.map(o => o.year).sort()).toEqual([2022, 2023, 2024, 2025]);
+    expect(offerings.map(o => o.year).sort()).toEqual([2022, 2023, 2024, 2025, 2026]);
   });
 
   it('captures only faculty under the "Instructors" heading (ignores TAs and commented-out names)', () => {
@@ -42,6 +45,9 @@ describe('stanford-cs231n extractor', () => {
     expect(byYear(2023).instructors.map(i => i.name)).toEqual(['Fei-Fei Li', 'Yunzhu Li', 'Ruohan Gao']);
     expect(byYear(2025).instructors.map(i => i.name)).toEqual([
       'Fei-Fei Li', 'Ehsan Adeli', 'Justin Johnson', 'Zane Durante',
+    ]);
+    expect(byYear(2026).instructors.map(i => i.name)).toEqual([
+      'Fei-Fei Li', 'Ehsan Adeli', 'Justin Johnson', 'Zane Durante', 'Tiange Xiang',
     ]);
     for (const o of offerings) {
       expect(o.instructors.every(i => i.role === 'instructor')).toBe(true);
@@ -58,6 +64,10 @@ describe('stanford-cs231n extractor', () => {
   it('records the fetched page as the official source', () => {
     expect(byYear(2023).sources).toEqual([
       { url: 'https://cs231n.stanford.edu/2023/', type: 'official' },
+    ]);
+    // The current offering's canonical source is the site root, not /2026/.
+    expect(byYear(2026).sources).toEqual([
+      { url: 'https://cs231n.stanford.edu/', type: 'official' },
     ]);
   });
 });
