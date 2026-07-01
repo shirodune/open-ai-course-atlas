@@ -1,0 +1,445 @@
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>CS229: Machine Learning</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+      <link rel="stylesheet" href="./style/bootstrap-theme.min.css">
+      <link href="./style/newstyle.css" rel="stylesheet" type="text/css">
+      <style>
+        table { table-layout: fixed; }
+        table td { width: 100px; word-wrap: break-word; }
+      </style>
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-md navbar-dark">
+         <a href="http://cs229.stanford.edu/">
+            <img src="./static/seal-dark-red.png" style="height:40px; float: left; margin-left: 20px; margin-right: 20px;">
+         </a>
+         <a class="navbar-brand" href="http://cs229.stanford.edu/">CS229</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" 
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+      </nav>
+      
+      <div class="jumbotron jumbotron-fluid">
+         <div class="container">
+            <h1 class="display-5">CS229: Machine Learning</h1>
+            <h2 class="display-5">Summer 2026</h2>
+            <br>
+            <div></div>
+
+            <h2>Instructors</h2>
+            <table>
+               <tr>
+                    <td>
+                        <div class="instructor">
+                          <a href="https://www.linkedin.com/in/jehangiramjad/">
+                          <div class="instructorphoto"><img src="static/2026_summer/mamjad_profilephoto.jpg"></div>
+                          <div>Jehangir Amjad</div>
+                          </a>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="instructor">
+                          <a href="https://www.linkedin.com/in/anandavati/">
+                          <div class="instructorphoto"><img src="static/2026_summer/Anand_Avati.png"></div>
+                          <div>Anand Avati</div>
+                          </a>
+                        </div>
+                    </td>
+
+               </tr>
+            </table>
+	    <br />
+<h3>Course Staff</h3>
+<table>
+  <tr>
+    <td>
+      <div class="instructor">
+        <a href="https://www.linkedin.com/in/alisa-levin/">
+          <div class="instructorphoto">
+            <img src="./static/2026_summer/alisa_levin.jpg" alt="Alisa">
+          </div>
+          <div>Alisa Levin</div>
+        </a>
+      </div>
+    </td>
+    <td>
+      <div class="instructor">
+        <a href="https://haotianye.com/">
+          <div class="instructorphoto">
+            <img src="./static/2026_summer/Haotian_Ye.jpg" alt="Haotian">
+          </div>
+          <div>Haotian Ye</div>
+        </a>
+      </div>
+    </td>
+    <td>
+      <div class="instructor">
+        <a href="https://www.linkedin.com/in/isha-s-45490b245/">
+          <div class="instructorphoto">
+            <img src="./static/2026_summer/Isha_Sinha.jpeg" alt="Isha">
+          </div>
+          <div>Isha Sinha</div>
+        </a>
+      </div>
+    </td>
+    <td>
+      <div class="instructor">
+        <a href="https://www.linkedin.com/in/lucy-xiaoyang-shi/">
+          <div class="instructorphoto">
+            <img src="./static/2026_summer/lucy_shi.jpg" alt="Lucy">
+          </div>
+          <div>Lucy Shi</div>
+        </a>
+      </div>
+    </td>
+    <td>
+      <div class="instructor">
+        <a href="https://www.linkedin.com/in/michaelzhangxyz/">
+          <div class="instructorphoto">
+            <img src="./static/2026_summer/michael_zhang.jpeg" alt="Michael">
+          </div>
+          <div>Michael Zhang</div>
+        </a>
+      </div>
+    </td>
+  </tr>
+</table>
+            <br />
+            <p><strong>Course Description</strong>&nbsp;&nbsp; This course provides a broad introduction to machine learning and statistical pattern recognition. Topics include: supervised learning (generative learning, parametric/non-parametric learning, neural networks); unsupervised learning (clustering, dimensionality reduction); learning theory (bias/variance tradeoffs, practical advice); reinforcement learning and adaptive control. The course will also discuss recent applications of machine learning, such as to robotic control, data mining, autonomous navigation, bioinformatics, speech recognition, and text and web data processing.</p>
+  <!-- Course Assistants -->
+   <!-- Course Assistants -->
+
+         </div>
+      </div>
+      
+      <br>
+      
+      <section id="info">
+         <div class="container">
+
+            <h2>Course Information</h2>
+            <dl>
+               <dt>Time and Location</dt>
+               <dd>Instructor Lectures: Tue, Thu 4:30 PM - 6:15 PM
+                  <a href="https://campus-map.stanford.edu/?id=04-080&lat=37.42787956&lng=-122.17429865&zoom=17&srch=NVIDIA%20Aud">NVIDIA Auditorium</a>
+               </dd>
+               <dd>CA Lectures: Please check the 
+                  <a href="https://docs.google.com/spreadsheets/d/1X8OpCbt6SyJ3_qlj5LxvZFoOtbjBadBVRzdmY4s6vb4/edit?usp=sharing">
+                     Syllabus</a> page or the course's <a href="https://canvas.stanford.edu/courses/228316"> Canvas </a> calendar for the latest information.
+               </dd>
+               <dd>Prerequisites: knowledge of basic computer science principles and skills at a level sufficient to write a reasonably non-trivial computer program in Python/NumPy to the equivalency of CS106A or CS106B, familiarity with probability theory to the equivalency of CS 109 or MATH151, and familiarity with multivariable calculus and linear algebra to the equivalency of MATH51 or CS205L. Please see pset0 on <a href="https://edstem.org/us/courses/99528">Ed</a>.</dd>
+               <dt> Quick Links</dt> 
+               <dd>All links will require you to be logged into your Stanford email to access. Course documents are only shared with Stanford University affiliates.</dd>
+               <ul>
+                  <li>
+                     <a href="https://docs.google.com/document/d/1PbQxBQTpp4K5hTzOJB9r8etKgsAuNPWs/edit?usp=sharing&ouid=116856043043211992000&rtpof=true&sd=true">Course Logistics and FAQ</a>
+                  </li>
+		  <li>
+		    <a href="https://queuestatus.com/queues/3500">Queue Status</a> for Office Hours
+                  <li>
+                     <a href="https://docs.google.com/spreadsheets/d/1X8OpCbt6SyJ3_qlj5LxvZFoOtbjBadBVRzdmY4s6vb4/edit?usp=sharing">Syllabus and Course Materials</a>
+                  </li>
+                  <li>Previous Offerings:
+                     <a href="index.html-spr26">Spring 2026</a>,
+                     <a href="index.html-win26">Winter 2026</a>,
+                     <a href="index.html-fall25">Fall 2025</a>,
+                     <a href="index.html-summer25">Summer 2025</a>,
+                     <a href="w24-index.html">Winter 2025</a>,
+                     <a href="index.html.fall24_prev">Fall 2024</a>,
+                     <a href="index.html-backup-summer24">Summer 2024</a>,
+                     <a href="index.html_winter_2024_backup">Winter 2024</a>, 
+                     <a href="index.html-backup-fall23">Fall 2023</a>, 
+                     <a href="index.html-backup-summer23">Summer 2023</a>, 
+                     <a href="./2023_index.html">Spring 2023</a>, 
+                     <a href="syllabus-fall2022.html">Fall 2022</a>, 
+                     <a href="index-sum22.html">Summer 2022</a>, 
+                     <a href="syllabus-spring2022.html">Spring 2022</a>, 
+                     <a href="syllabus-fall2021.html">Fall 2021</a>, 
+                     <a href="syllabus-spring2021.html">Spring 2021</a>, 
+                     <a href="syllabus-fall2020.html">Fall 2020</a>
+                  </li>
+               </ul> 
+            <dt>Contact and Communication</dt> 
+               <dd>
+                  <a href="https://edstem.org/us/courses/99528">Ed</a> is the primary method of communication for this class. Please do NOT reach out to the instructors (or course staff) directly, otherwise your questions may get lost. Due to a large number of inquiries, we encourage you to first read the 
+                  <a href="https://docs.google.com/document/d/1PbQxBQTpp4K5hTzOJB9r8etKgsAuNPWs/edit?usp=sharing&ouid=116856043043211992000&rtpof=true&sd=true">Course Logistics and FAQ</a> document for commonly asked questions, and then create a post on Ed to contact the course staff.
+               </dd>
+               <dd>
+                  This quarter we will be using Ed as the course forum.
+                  <ul>
+                     <li>All official announcements and communication will happen over Ed.</li>
+                     <li>Any questions regarding course content and course organization should be posted on Ed. You are strongly encouraged to answer other students' questions when you know the answer.</li>
+                     <li>For private matters specific to you (e.g. special accommodations, requesting alternative arrangements etc.), please create a private post on Ed.</li>
+                     <li>For longer discussions with TAs, please attend office hours.</li>
+                     <li>TA office hours can be found on <a href="https://canvas.stanford.edu/courses/228316">Canvas</a>. For the course calendar, see also Canvas and the <a href="https://docs.google.com/spreadsheets/d/1X8OpCbt6SyJ3_qlj5LxvZFoOtbjBadBVRzdmY4s6vb4/edit?usp=sharing">Syllabus and Course Materials</a> page.</li>
+                     <li>Before the beginning of the course, please contact the head TA for logistical questions (ideally after consulting the FAQ link).</li>
+                  </ul>
+               </dd> 
+
+            <dt>AIWG Statement</dt>
+              <dd>
+                This course is participating in the proctoring pilot overseen by the Academic Integrity Working Group (AIWG). The purpose of this pilot is to determine the efficacy of proctoring and develop effective practices for proctoring in-person exams at Stanford.  To find more details on the pilot or the working group, please visit the AIWG’s <a href="https://studentaffairs.stanford.edu/AIWG">webpage</a>.
+              </dd>
+
+            <dt>OAE Deadlines Statement</dt>
+              <dd>
+                <strong>IMPORTANT OAE DEADLINES:</strong> If you plan to use your OAE-approved exam accommodations for a specific assessment, students must provide their letter and inform the instructor by:
+                <ul>
+                  <li>10 calendar days prior to an assignment due date or Final exam.</li>
+		  <li>Students should send their accommodation letter to the teaching staff by making a private post on Ed, as soon as possible.</li>
+                </ul>
+                You only need to submit your letter once per quarter. For urgent OAE-related accommodation needs that arise after the deadline, please consult your OAE adviser.  If you are not yet registered with OAE, contact the office directly at oae-contactus@stanford.edu
+              </dd>
+            
+            </dl>
+         </div>
+      </section>
+      
+      <div class="container" style="margin-top: 2em">
+  
+
+<!-- <section id="schedule" style="margin-top: 2em">
+  <div class="container">
+    <h2>Course Schedule (January - March 2026)</h2>
+    <p><em>Note: This schedule is tentative and subject to change.</em></p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Session</th>
+          <th>Topic</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+<tbody>
+  <tr>
+    <td>January 5, 2026</td>
+    <td>Lecture 1</td>
+    <td>Introduction</td>
+    <td>Problem Set 0 Released</td>
+  </tr>
+  <tr>
+    <td>September 24, 2025</td>
+    <td>Lecture 2</td>
+    <td>Supervised learning setup. LMS.</td>
+    <td>Problem Set 1 Released</td>
+  </tr>
+  <tr>
+    <td>September 26, 2025</td>
+    <td>TA Lecture 1</td>
+    <td>Linear Algebra Review</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>September 29, 2025</td>
+    <td>Lecture 3</td>
+    <td>Weighted Least Squares. Logistic regression. Newton's Method</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 1, 2025</td>
+    <td>Lecture 4</td>
+    <td>Dataset split; Exponential family. Generalized Linear Models.</td>
+    <td>Problem Set 0 (Due at 11:59 pm PT - Ungraded)</td>
+  </tr>
+  <tr>
+    <td>October 2, 2025</td>
+    <td>Discussion 1</td>
+    <td>TBD</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 3, 2025</td>
+    <td>TA Lecture 2</td>
+    <td>Probability Review</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 6, 2025</td>
+    <td>Lecture 5</td>
+    <td>Bias-variance tradeoff, regularization</td>
+    <td>Final Project Proposal (Due at 11:59 pm PT)</td>
+  </tr>
+  <tr>
+    <td>October 8, 2025</td>
+    <td>Lecture 6</td>
+    <td>Gaussian discriminant analysis. Naive Bayes, Laplace Smoothing.</td>
+    <td>Problem Set 2 Released<br>Problem Set 1 (Due at 11:59 pm PT)</td>
+  </tr>
+  <tr>
+    <td>October 9, 2025</td>
+    <td>Discussion 2</td>
+    <td>TBD</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 10, 2025</td>
+    <td>TA Lecture 3</td>
+    <td>Python/Numpy</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 13, 2025</td>
+    <td>Lecture 7</td>
+    <td>Kernels. SVM.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 15, 2025</td>
+    <td>Lecture 8</td>
+    <td>K-Means. GMM. Expectation Maximization</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 16, 2025</td>
+    <td>Discussion 3</td>
+    <td>TBD</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 17, 2025</td>
+    <td>TA Lecture 4</td>
+    <td>Evaluation Metrics</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 20, 2025</td>
+    <td>Lecture 9</td>
+    <td>Decision trees</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 22, 2025</td>
+    <td>Lecture 10</td>
+    <td>Boosting</td>
+    <td>Problem Set 3 Released<br>Problem Set 2 (Due at 11:59 pm PT)</td>
+  </tr>
+  <tr>
+    <td>October 23, 2025</td>
+    <td>Discussion 4</td>
+    <td>Practice Midterm Question Walk-through</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 24, 2025</td>
+    <td>TA Lecture 5</td>
+    <td>Midterm Review</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 27, 2025</td>
+    <td>Lecture 11</td>
+    <td>Neural Networks 1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>October 29, 2025</td>
+    <td>Lecture 12</td>
+    <td>Neural Networks 2 (backprop)</td>
+    <td></td>
+  </tr>
+  <tr style="font-weight: bold; color: red;">
+    <td>October 30, 2025</td>
+    <td>MIDTERM</td>
+    <td>MIDTERM EXAM</td>
+    <td>Location TBD (6-9 pm PT)<br>No TA Lecture (Midterm Week)</td>
+  </tr>
+  <tr>
+    <td>November 3, 2025</td>
+    <td>Lecture 13</td>
+    <td>ML Advice</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>November 5, 2025</td>
+    <td>Lecture 14</td>
+    <td>Basic concepts in RL, value iteration, policy iteration</td>
+    <td>Problem Set 4 Released<br>Problem Set 3 (Due at 11:59 pm PT)</td>
+  </tr>
+  <tr>
+    <td>November 6, 2025</td>
+    <td>Discussion 5</td>
+    <td>TBD</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>November 7, 2025</td>
+    <td>TA Lecture 6</td>
+    <td>Deep Learning (Convnets)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>November 10, 2025</td>
+    <td>Lecture 15</td>
+    <td>Model-based RL, value function approximator</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>November 12, 2025</td>
+    <td>Lecture 16</td>
+    <td>PCA</td>
+    <td>Final Project Milestone (Due at 11:59 pm PT)</td>
+  </tr>
+  <tr>
+    <td>November 14, 2025</td>
+    <td>TA Lecture 7</td>
+    <td>Transformers</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>November 17, 2025</td>
+    <td>Lecture 17</td>
+    <td>Large language models — learning tasks, language modeling, embeddings, transformers</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>November 19, 2025</td>
+    <td>Lecture 18</td>
+    <td>Large language models — RAG, fine-tuning, prompt optimization, safety</td>
+    <td>Problem Set 4 (Due at 11:59 pm PT)</td>
+  </tr>
+  <tr>
+    <td>December 1, 2025</td>
+    <td>Lecture 19</td>
+    <td>Fairness, algorithmic bias, explainability, privacy</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>December 3, 2025</td>
+    <td>Lecture 20</td>
+    <td>Fairness, algorithmic bias, explainability, privacy</td>
+    <td></td>
+  </tr>
+  <tr style="font-weight: bold; color: red;">
+    <td>December 5, 2025</td>
+    <td>Final Project Report</td>
+    <td></td>
+    <td>Final Project Report (Due at 11:59 pm PT)</td>
+  </tr>
+  <tr style="font-weight: bold; color: red;">
+    <td>December 10, 2025</td>
+    <td>Final Project Poster Session</td>
+    <td></td>
+    <td>Final Project Poster Session (3:30 pm - 6:30 pm PT)</td>
+  </tr>
+</tbody>
+    </table>
+  </div>
+</section> -->
+ 
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+         crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+         integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+         crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
+         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
+         crossorigin="anonymous"></script>
+   </body>
+</html>
