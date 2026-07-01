@@ -71,6 +71,31 @@ describe('stanford-cs229 extractor', () => {
     expect(byKey(2026, 'Summer').project).toBeUndefined();
   });
 
+  it('captures the inline lecture schedule where the page has one', () => {
+    const winter = byKey(2025, 'Winter').schedule!;
+    const fall = byKey(2025, 'Fall').schedule!;
+
+    expect(winter).toHaveLength(28);
+    expect(fall).toHaveLength(29);
+    expect(winter[0]).toEqual({
+      date: '2025-01-06',
+      title: 'Introduction: What is Machine Learning, History of ML/AI',
+    });
+    expect(fall[0]).toEqual({ date: '2025-09-22', title: 'Introduction' });
+
+    // Every captured entry has an ISO date and a non-empty title.
+    for (const s of [...winter, ...fall]) {
+      expect(s.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(s.title.length).toBeGreaterThan(0);
+    }
+
+    // The 2025 curriculum reaches modern LLMs — a grounded evolution signal.
+    expect(fall.some(s => /large language models/i.test(s.title))).toBe(true);
+
+    // The Summer 2026 homepage has no schedule table yet, so none is claimed.
+    expect(byKey(2026, 'Summer').schedule).toBeUndefined();
+  });
+
   it('records the fetched page as the official source', () => {
     expect(byKey(2026, 'Summer').sources).toEqual([
       { url: 'https://cs229.stanford.edu/', type: 'official' },
