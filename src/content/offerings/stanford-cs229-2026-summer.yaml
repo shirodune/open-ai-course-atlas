@@ -1,0 +1,16 @@
+course: stanford-cs229
+year: 2026
+term: Summer
+instructors:
+  - name: Jehangir Amjad
+    role: instructor
+  - name: Anand Avati
+    role: instructor
+frameworks: []
+sources:
+  - url: https://cs229.stanford.edu/
+    type: official
+harvest:
+  lastVerified: "2026-07-01"
+  extractor: stanford-cs229
+  confidence: 0.95

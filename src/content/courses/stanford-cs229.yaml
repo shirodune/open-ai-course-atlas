@@ -1,0 +1,11 @@
+title: Machine Learning
+number: CS 229
+institution: Stanford
+fields: [machine-learning]
+tags: [machine-learning, supervised-learning, unsupervised-learning, neural-networks, learning-theory, reinforcement-learning]
+homepage: https://cs229.stanford.edu/
+summary: >-
+  Stanford's foundational machine learning course, originated by Andrew Ng. A broad
+  survey of supervised learning, unsupervised learning, learning theory, and
+  reinforcement learning, taught with from-scratch Python/NumPy problem sets. Offered
+  every quarter under a rotating faculty roster.

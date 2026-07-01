@@ -1,0 +1,21 @@
+course: stanford-cs229
+year: 2025
+term: Fall
+instructors:
+  - name: Moses Charikar
+    role: instructor
+  - name: Carlos Guestrin
+    role: instructor
+  - name: Andrew Ng
+    role: instructor
+frameworks: []
+project:
+  type: final-project
+  title: Final Project
+sources:
+  - url: https://cs229.stanford.edu/index.html-fall25
+    type: official
+harvest:
+  lastVerified: "2026-07-01"
+  extractor: stanford-cs229
+  confidence: 0.95
