@@ -19,6 +19,46 @@ function headingText($: cheerio.CheerioAPI, el: cheerio.Element): string {
   return $(el).text().replace(/\s+/g, ' ').trim();
 }
 
+const MONTHS: Record<string, string> = {
+  jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06',
+  jul: '07', aug: '08', sep: '09', oct: '10', nov: '11', dec: '12',
+};
+
+// "September 22, 2025" / "Jan 6, 2025" -> "2025-09-22". Returns undefined if the
+// cell isn't a recognisable date (blank rows, merged header cells).
+function toIsoDate(raw: string): string | undefined {
+  const m = raw.match(/([A-Za-z]{3,})\.?\s+(\d{1,2}),?\s+(20\d{2})/);
+  if (!m) return undefined;
+  const mm = MONTHS[m[1].slice(0, 3).toLowerCase()];
+  if (!mm) return undefined;
+  return `${m[3]}-${mm}-${m[2].padStart(2, '0')}`;
+}
+
+// CS229's modern pages carry the full lecture schedule inline in a 4-column table
+// (Date | Session | Topic | Details). We keep dated rows with a real Topic and use
+// the Topic as the entry title; auxiliary "TBD" discussion rows are dropped. Pages
+// early in the term (e.g. the Summer 2026 homepage) have no such table, so the
+// schedule is simply omitted.
+function extractSchedule($: cheerio.CheerioAPI): { date?: string; title: string }[] {
+  const schedule: { date?: string; title: string }[] = [];
+  $('table').each((_, table) => {
+    const rows = $(table).find('tr');
+    if (rows.length < 2) return;
+    const headers = $(rows[0]).find('th, td').map((_, c) => $(c).text().trim().toLowerCase()).get();
+    const dateCol = headers.indexOf('date');
+    const topicCol = headers.indexOf('topic');
+    if (dateCol === -1 || topicCol === -1) return;
+    rows.slice(1).each((_, row) => {
+      const cells = $(row).find('td, th');
+      const date = toIsoDate($(cells[dateCol]).text().replace(/\s+/g, ' ').trim());
+      const title = $(cells[topicCol]).text().replace(/\s+/g, ' ').trim();
+      if (!date || !title || title.toUpperCase() === 'TBD') return;
+      schedule.push({ date, title });
+    });
+  });
+  return schedule;
+}
+
 export const extract: CourseExtractor = (pages) =>
   pages.map((page): ExtractedOffering => {
     const $ = cheerio.load(page.html);
@@ -60,5 +100,9 @@ export const extract: CourseExtractor = (pages) =>
     if (/Final Project/i.test(bodyText)) {
       offering.project = { type: 'final-project', title: 'Final Project' };
     }
+
+    const schedule = extractSchedule($);
+    if (schedule.length > 0) offering.schedule = schedule;
+
     return offering;
   });

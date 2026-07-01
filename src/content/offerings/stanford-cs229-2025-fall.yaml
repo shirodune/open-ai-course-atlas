@@ -9,6 +9,65 @@ instructors:
   - name: Andrew Ng
     role: instructor
 frameworks: []
+schedule:
+  - date: "2025-09-22"
+    title: Introduction
+  - date: "2025-09-24"
+    title: Supervised learning setup. LMS.
+  - date: "2025-09-26"
+    title: Linear Algebra Review
+  - date: "2025-09-29"
+    title: Weighted Least Squares. Logistic regression. Newton's Method
+  - date: "2025-10-01"
+    title: Dataset split; Exponential family. Generalized Linear Models.
+  - date: "2025-10-03"
+    title: Probability Review
+  - date: "2025-10-06"
+    title: Bias-variance tradeoff, regularization
+  - date: "2025-10-08"
+    title: Gaussian discriminant analysis. Naive Bayes, Laplace Smoothing.
+  - date: "2025-10-10"
+    title: Python/Numpy
+  - date: "2025-10-13"
+    title: Kernels. SVM.
+  - date: "2025-10-15"
+    title: K-Means. GMM. Expectation Maximization
+  - date: "2025-10-17"
+    title: Evaluation Metrics
+  - date: "2025-10-20"
+    title: Decision trees
+  - date: "2025-10-22"
+    title: Boosting
+  - date: "2025-10-23"
+    title: Practice Midterm Question Walk-through
+  - date: "2025-10-24"
+    title: Midterm Review
+  - date: "2025-10-27"
+    title: Neural Networks 1
+  - date: "2025-10-29"
+    title: Neural Networks 2 (backprop)
+  - date: "2025-10-30"
+    title: MIDTERM EXAM
+  - date: "2025-11-03"
+    title: ML Advice
+  - date: "2025-11-05"
+    title: Basic concepts in RL, value iteration, policy iteration
+  - date: "2025-11-07"
+    title: Deep Learning (Convnets)
+  - date: "2025-11-10"
+    title: Model-based RL, value function approximator
+  - date: "2025-11-12"
+    title: PCA
+  - date: "2025-11-14"
+    title: Transformers
+  - date: "2025-11-17"
+    title: Large language models — learning tasks, language modeling, embeddings, transformers
+  - date: "2025-11-19"
+    title: Large language models — RAG, fine-tuning, prompt optimization, safety
+  - date: "2025-12-01"
+    title: Fairness, algorithmic bias, explainability, privacy
+  - date: "2025-12-03"
+    title: Fairness, algorithmic bias, explainability, privacy
 project:
   type: final-project
   title: Final Project
@@ -18,4 +77,4 @@ sources:
 harvest:
   lastVerified: "2026-07-01"
   extractor: stanford-cs229
-  confidence: 0.95
+  confidence: 0.97

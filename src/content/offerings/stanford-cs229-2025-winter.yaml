@@ -7,6 +7,63 @@ instructors:
   - name: Ludwig Schmidt
     role: instructor
 frameworks: []
+schedule:
+  - date: "2025-01-06"
+    title: "Introduction: What is Machine Learning, History of ML/AI"
+  - date: "2025-01-08"
+    title: Linear Regression, Training, Gradient Descent, Normal Equations
+  - date: "2025-01-10"
+    title: Linear Algebra Review
+  - date: "2025-01-13"
+    title: Regularization, Ridge Regression, Validation Sets
+  - date: "2025-01-15"
+    title: Linear classifiers, Logistic Regression, Learning from Weighted Data
+  - date: "2025-01-17"
+    title: Probability Review
+  - date: "2025-01-20"
+    title: MLK - HOLIDAY, NO LECTURE
+  - date: "2025-01-22"
+    title: "Neural Networks: Introduction, Basic Architecture (MLP)"
+  - date: "2025-01-24"
+    title: Python/Numpy
+  - date: "2025-01-27"
+    title: "Neural Networks: Multi-Class Loss, Backpropagation"
+  - date: "2025-01-29"
+    title: "Neural Networks: Optimization, Advanced Architecture"
+  - date: "2025-01-31"
+    title: Pytorch
+  - date: "2025-02-03"
+    title: "Neural Networks: Transformers and Language Models"
+  - date: "2025-02-05"
+    title: "Neural Networks: Convolutional Networks (CNNs) and Pre-trained Models"
+  - date: "2025-02-07"
+    title: Midterm Review
+  - date: "2025-02-10"
+    title: Decision Trees
+  - date: "2025-02-12"
+    title: Boosting, Adaboost
+  - date: "2025-02-13"
+    title: MIDTERM Exam
+  - date: "2025-02-17"
+    title: President's Day - HOLIDAY, NO LECTURE
+  - date: "2025-02-19"
+    title: Advance Machine Learing
+  - date: "2025-02-21"
+    title: Optimization
+  - date: "2025-02-24"
+    title: PCA & Autoencoders
+  - date: "2025-02-26"
+    title: Unsupervised learning, KMeans, & GMM
+  - date: "2025-02-28"
+    title: Evaluation Metrics
+  - date: "2025-03-03"
+    title: Reinforcement learning
+  - date: "2025-03-05"
+    title: Reinforcement Learning
+  - date: "2025-03-10"
+    title: Fairness & Algorithmic Bias
+  - date: "2025-03-12"
+    title: Ethics lecture
 project:
   type: final-project
   title: Final Project
@@ -16,4 +73,4 @@ sources:
 harvest:
   lastVerified: "2026-07-01"
   extractor: stanford-cs229
-  confidence: 0.96
+  confidence: 0.97
